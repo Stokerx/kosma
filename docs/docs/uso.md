@@ -4,7 +4,7 @@
 ```markdown
 # Uso Básico
 
-`py-validator` está diseñado para ser fácil de usar y flexible. Aquí te mostramos cómo puedes empezar a usarlo en tus proyectos.
+`kosma` está diseñado para ser fácil de usar y flexible. Aquí te mostramos cómo puedes empezar a usarlo en tus proyectos.
 
 ## Importando el Validador
 
