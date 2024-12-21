@@ -15,7 +15,7 @@
 
 - [Instalación](instalacion.md)
 - [Uso Básico](uso.md)
-- [Reglas de Validación](reglas.md)
+- [Reglas de Validación](rules.md)
 - [Personalización](personalizacion.md)
 - [Contribuciones](contribuciones.md)
 - [Licencia](licencia.md)

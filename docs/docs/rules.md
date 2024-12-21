@@ -1,10 +1,10 @@
 
 ### `docs/rules.md`
 
-```markdown 
+```markdown
 # Reglas de Validación Disponibles
 
-`py-validator` ofrece una amplia gama de reglas de validación listas para usar. Aquí tienes una lista completa de todas las reglas disponibles y cómo usarlas.
+`kosma` ofrece una amplia gama de reglas de validación listas para usar. Aquí tienes una lista completa de todas las reglas disponibles y cómo usarlas.
 
 ## accepted
 
