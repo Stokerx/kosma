@@ -10,8 +10,7 @@
 
 El campo bajo validación debe ser `yes`, `on`, `1`, o `true`. Esto es útil para validar la aceptación de "Términos de Servicio", por ejemplo.
 
-**Ejemplo:
-**
+**Ejemplo:**
 
 ```python
 rules = {
@@ -98,6 +97,7 @@ rules = {
 'username': ['alpha_num']
 }
 ```
+
 ## array
 
 El campo bajo validación debe ser un array de .
@@ -109,6 +109,7 @@ rules = {
 'hobbies': ['array']
 }
 ```
+
 ## bail
 
 Detiene la ejecución de las reglas de validación para un atributo después del primer fallo de validación.
@@ -120,6 +121,7 @@ rules = {
 'email': ['bail', 'required', 'email']
 }
 ```
+
 ## before:date
 
 El campo bajo validación debe ser un valor anterior a la fecha dada.
@@ -130,7 +132,9 @@ Ejemplo:
 rules = {
 'end_date': ['date'],
 'start_date': ['date', 'before:end_date']
-}````
+}
+```
+
 ## before_or_equal:date
 
 El campo bajo validación debe ser un valor anterior o igual a la fecha dada.
@@ -141,7 +145,9 @@ Ejemplo:
 rules = {
 'end_date': ['date'],
 'start_date': ['date', 'before_or_equal:end_date']
-}````
+}
+```
+
 ## between:min,max
 
 El campo bajo validación debe tener un tamaño entre min y max (inclusive).
@@ -153,6 +159,7 @@ rules = {
 'age': ['between:18,65']
 }
 ```
+
 ## boolean
 
 El campo bajo validación debe poder ser interpretado como un valor booleano. Los valores aceptados son true, false, 1, 0, "1", y "0".
@@ -164,6 +171,7 @@ rules = {
 'is_active': ['boolean']
 }
 ```
+
 ## confirmed
 
 El campo bajo validación debe tener un campo coincidente de {field}\_confirmation. Por ejemplo, si el campo bajo validación es password, debe haber un campo password_confirmation presente en los datos.
@@ -175,6 +183,7 @@ rules = {
 'password': ['confirmed']
 }
 ```
+
 ## date
 
 El campo bajo validación debe ser una fecha válida según la función datetime.strptime de .
@@ -186,6 +195,7 @@ rules = {
 'birth_date': ['date']
 }
 ```
+
 ## date_equals:date
 
 El campo bajo validación debe ser igual a la fecha dada.
@@ -197,6 +207,7 @@ rules = {
 'date_of_birth': ['date', 'date_equals:1990-01-01']
 }
 ```
+
 ## date_format:format
 
 El campo bajo validación debe coincidir con el formato dado.
@@ -208,6 +219,7 @@ rules = {
 'start_time': ['date_format:H:M']
 }
 ```
+
 ## decimal:min,max
 
 El campo bajo validación debe ser numérico y contener la cantidad especificada de decimales.
@@ -219,6 +231,7 @@ rules = {
 'price': ['decimal:2,4']
 }
 ```
+
 ## declined
 
 El campo bajo validación debe ser "no", "off", 0, o false.
@@ -230,6 +243,7 @@ rules = {
 'terms_accepted': ['declined']
 }
 ```
+
 ## declined_if:otro_campo,valor
 
 El campo bajo validación debe ser "no", "off", 0, o false si el otro campo es igual al valor especificado.
@@ -241,6 +255,7 @@ rules = {
 'terms_accepted': ['declined_if:country,US']
 }
 ```
+
 ## different:field
 
 El campo bajo validación debe tener un valor diferente al del campo especificado.
@@ -252,6 +267,7 @@ rules = {
 'email': ['different:old_email']
 }
 ```
+
 ## digits:value
 
 El campo bajo validación debe ser numérico y tener una longitud exacta de value.
@@ -263,6 +279,7 @@ rules = {
 'zip_code': ['digits:5']
 }
 ```
+
 ## digits_between:min,max
 
 El campo bajo validación debe ser numérico y tener una longitud entre min y max.
@@ -274,6 +291,7 @@ rules = {
 'pin_code': ['digits_between:4,6']
 }
 ```
+
 ## dimensions
 
 El campo bajo validación debe ser una imagen que cumpla con las restricciones de dimensiones especificadas.
@@ -285,6 +303,7 @@ rules = {
 'avatar': [('dimensions', {'min_width': 100, 'min_height': 200})]
 }
 ```
+
 ## distinct
 
 Al trabajar con arrays, el campo bajo validación no debe tener valores duplicados.
@@ -296,6 +315,7 @@ rules = {
 'categories': ['array', 'distinct']
 }
 ```
+
 ## email
 
 El campo bajo validación debe estar formateado como una dirección de correo electrónico.
@@ -307,6 +327,7 @@ rules = {
 'email': ['email']
 }
 ```
+
 ## ends_with:value1,value2,...
 
 El campo bajo validación debe terminar con uno de los valores dados.
@@ -318,6 +339,7 @@ rules = {
 'filename': ['ends_with:.txt,.pdf,.doc']
 }
 ```
+
 ## exclude
 
 El campo bajo validación será excluido de los datos devueltos por validated() y safe().
@@ -329,6 +351,7 @@ rules = {
 'password': ['exclude']
 }
 ```
+
 ## exclude_if:otro_campo,valor
 
 El campo bajo validación será excluido de los datos devueltos por validated() y safe() si otro campo es igual a un valor dado.
@@ -340,6 +363,7 @@ rules = {
 'type': ['exclude_if:mode,test']
 }
 ```
+
 ## exclude_unless:otro_campo,valor
 
 El campo bajo validación será excluido de los datos devueltos por validated() y safe() a menos que otro campo sea igual a un valor dado.
@@ -351,6 +375,7 @@ rules = {
 'type': ['exclude_unless:mode,production']
 }
 ```
+
 ## exclude_with:otro_campo
 
 El campo bajo validación será excluido de los datos devueltos por validated() y safe() si otro campo está presente.
@@ -362,6 +387,7 @@ rules = {
 'token': ['exclude_with:api_key']
 }
 ```
+
 ## exclude_without:otro_campo
 
 El campo bajo validación será excluido de los datos devueltos por validated() y safe() si otro campo no está presente.
@@ -373,6 +399,7 @@ rules = {
 'token': ['exclude_without:api_key']
 }
 ```
+
 ## exists:tabla,columna
 
 El campo bajo validación debe existir en la tabla y columna de la base de datos especificada. (Nota: Esta regla requiere configuración de la base de datos).
@@ -384,6 +411,7 @@ rules = {
 'category_id': [('exists', 'categories', 'id')]
 }
 ```
+
 ## file
 
 El campo bajo validación debe ser un archivo subido exitosamente.
@@ -395,17 +423,19 @@ rules = {
 'document': ['file']
 }
 ```
+
 ## filled
 
 El campo bajo validación no debe estar vacío cuando está presente.
 
-## Ejemplo:
+Ejemplo:
 
 ```python
 rules = {
 'email': ['filled', 'email']
 }
 ```
+
 ## gt:field
 
 El campo bajo validación debe ser mayor que el campo dado.
@@ -416,7 +446,9 @@ Ejemplo:
 rules = {
 'start_time': ['date'],
 'end_time': ['date', 'gt:start_time']
-}````
+}
+```
+
 ## gte:field
 
 El campo bajo validación debe ser mayor o igual que el campo dado.
@@ -427,7 +459,9 @@ Ejemplo:
 rules = {
 'start_time': ['date'],
 'end_time': ['date', 'gte:start_time']
-}````
+}
+```
+
 ## hex_color
 
 El campo bajo validación debe ser un color hexadecimal válido.
@@ -439,6 +473,7 @@ rules = {
 'color': ['hex_color']
 }
 ```
+
 ## image
 
 El campo bajo validación debe ser una imagen (jpeg, png, bmp, gif, svg, o webp).
@@ -450,7 +485,9 @@ rules = {
 'avatar': ['image']
 }
 ```
-in_array:otro_campo.\*
+
+## in_array:otro_campo.\*
+
 El campo bajo validación debe existir en los valores de otro campo array.
 
 Ejemplo:
@@ -460,7 +497,9 @@ rules = {
 'item_id': ['in_array:items.*.id']
 }
 ```
-integer
+
+## integer
+
 El campo bajo validación debe ser un número entero.
 
 Ejemplo:
@@ -470,7 +509,9 @@ rules = {
 'age': ['integer']
 }
 ```
-ip
+
+## ip
+
 El campo bajo validación debe ser una dirección IP válida.
 
 Ejemplo:
@@ -480,7 +521,9 @@ rules = {
 'ip_address': ['ip']
 }
 ```
-ipv4
+
+## ipv4
+
 El campo bajo validación debe ser una dirección IPv4 válida.
 
 Ejemplo:
@@ -490,7 +533,9 @@ rules = {
 'ip_address': ['ipv4']
 }
 ```
-ipv6
+
+## ipv6
+
 El campo bajo validación debe ser una dirección IPv6 válida.
 
 Ejemplo:
@@ -500,7 +545,9 @@ rules = {
 'ip_address': ['ipv6']
 }
 ```
-json
+
+## json
+
 El campo bajo validación debe ser una cadena JSON válida.
 
 Ejemplo:
@@ -510,7 +557,9 @@ rules = {
 'settings': ['json']
 }
 ```
-lt:field
+
+## lt:field
+
 El campo bajo validación debe ser menor que el campo dado.
 
 Ejemplo:
@@ -519,8 +568,11 @@ Ejemplo:
 rules = {
 'end_time': ['date'],
 'start_time': ['date', 'lt:end_time']
-}````
-lte:field
+}
+```
+
+## lte:field
+
 El campo bajo validación debe ser menor o igual que el campo dado.
 
 Ejemplo:
