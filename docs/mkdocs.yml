@@ -1,0 +1,22 @@
+site_name: kosma
+site_description: Una biblioteca de validación en Python, similar a la de Laravel.
+site_author: Tu Nombre
+
+repo_url: https://github.com/Stokerx/kosma
+repo_name: Stokerx/kosma
+
+nav:
+    - Inicio: index.md
+    - Instalación: instalacion.md
+    - Uso: uso.md
+    - Reglas de Validación: reglas.md
+    - Personalización: personalizacion.md
+    - Contribuciones: contribuciones.md
+    - Licencia: licencia.md
+
+theme:
+  name: readthedocs
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
