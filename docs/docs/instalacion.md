@@ -9,9 +9,11 @@ Abre tu terminal y ejecuta el siguiente comando:
 ```bash
 pip install kosma
 ```
+
 ## Verificacion de la instalacion
 
 Para verificar que `kosma` se ha instalado correctamente, puedes ejecutar el siguiente comando en tu terminal:
+
 ```bash
 python -c "import kosma; print(kosma.__version__)"
 ```
