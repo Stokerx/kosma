@@ -15,7 +15,7 @@ nav:
     - Licencia: licencia.md
 
 theme:
-  name: readthedocs
+  name: material
 
 markdown_extensions:
   - pymdownx.highlight
