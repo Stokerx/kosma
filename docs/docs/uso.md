@@ -16,7 +16,7 @@ from kosma import Validator
 
 ## Creando una Instancia del Validador
 
-Para usar el validador, primero necesitas crear una instancia de la clase Validator, pasando los datos a validar, las reglas de validación y opcionalmente, mensajes de error personalizados:
+Para usar el validador, primero necesitas crear una instancia de la clase Validator, pasando los datos a validar, las reglas de validación y opcionalmente, mensajes de error personalizados: emoji teripoint
 
 ```python
 data = {
