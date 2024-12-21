@@ -1,5 +1,5 @@
-from kosma import rules
-from kosma.exceptions import RuleNotFoundException
+import rules
+from exceptions import RuleNotFoundException
 
 def parse_rule(rule):
     if isinstance(rule, str):

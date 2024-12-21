@@ -1,5 +1,5 @@
 from . import Rule
-from kosma.utils import get_size
+from utils import get_size
 
 class Max(Rule):
     def __init__(self, max_value):

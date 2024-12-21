@@ -1,5 +1,5 @@
 from . import Rule
-from kosma.utils import get_size
+from utils import get_size
 
 class Between(Rule):
     def __init__(self, min_val, max_val):

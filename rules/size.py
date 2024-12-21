@@ -1,5 +1,5 @@
 from . import Rule
-from kosma.utils import get_size
+from utils import get_size
 
 class Size(Rule):
     def __init__(self, size_value):

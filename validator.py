@@ -1,8 +1,8 @@
 import re
 
-from kosma.exceptions import ValidationException, RuleNotFoundException
-from kosma import utils
-from kosma import *
+from exceptions import ValidationException, RuleNotFoundException
+import utils
+from rules import *
 
 class Validator:
     def __init__(self, data, rules, messages=None):
@@ -38,7 +38,7 @@ class Validator:
         return self.validated_data
 
     def validate_attribute(self, attribute, rule_info):
-        from kosma.rules import Rule as BaseRule
+        from rules import Rule as BaseRule
 
         if isinstance(rule_info, tuple):
             rule_name, parameters = rule_info
