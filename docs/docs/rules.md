@@ -1,5 +1,5 @@
 
-### `docs/reglas.md`
+### `docs/rules.md`
 
 ```markdown 
 # Reglas de Validación Disponibles
