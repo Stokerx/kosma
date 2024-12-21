@@ -15,6 +15,7 @@ from kosma import Validator
 ```
 
 ## Creando una Instancia del Validador
+
 Para usar el validador, primero necesitas crear una instancia de la clase Validator, pasando los datos a validar, las reglas de validación y opcionalmente, mensajes de error personalizados:
 
 ```python
@@ -41,6 +42,7 @@ validator = Validator(data, rules, messages)
 ```
 
 ## Ejecutando la Validación
+
 Puedes verificar si los datos pasan las reglas de validación usando el método passes():
 
 ```python
@@ -51,7 +53,7 @@ else:
     print("Errores de validación:", errors)
 ```
 
-## O si prefieres una excepción en caso de fallo:
+## O si prefieres una excepción en caso de fallo
 
 ```python
 try:
@@ -62,16 +64,20 @@ except ValidationException as e:
 ```
 
 ## Accediendo a los Datos Validados
+
 Si la validación es exitosa, puedes acceder a los datos validados usando el método validated():
+
 ```python
 validated_data = validator.validated()
 print("Datos validados:", validated_data)
 ```
 
 ## Reglas de Validación Personalizadas
+
 Puedes extender kosma con tus propias reglas de validación. Consulta la sección Personalización para más detalles.
 
 ### Ejemplo Completo
+
 Aquí tienes un ejemplo completo de cómo usar kosma:
 
 ```python
