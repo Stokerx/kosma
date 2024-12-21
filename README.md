@@ -22,7 +22,7 @@ pip install kosma
 ```
 
 # Uso
-Aquí tienes un ejemplo básico de cómo usar py-validator:
+Aquí tienes un ejemplo básico de cómo usar kosma:
 
 ```python
 from kosma import Validator
