@@ -2,7 +2,7 @@ import threading
 import time
 import urllib.request
 import orjson
-from velox import VeloxApp, Controller, get
+from kosma import KosmaApp, Controller, get
 
 class BenchController(Controller):
     @get("/ping")
@@ -12,15 +12,15 @@ class BenchController(Controller):
 def test_cold_start_and_throughput_benchmark():
     # 1. Medir Cold Start
     start_time = time.perf_counter()
-    app = VeloxApp()
+    app = KosmaApp()
     app.register(BenchController)
     app.compile()
     compile_time_ms = (time.perf_counter() - start_time) * 1000
 
-    print(f"\n[⚡ BENCHMARK] Cold Start / AOT Compilation Time: {compile_time_ms:.2f} ms")
-    assert compile_time_ms < 50.0  # El arranque y compilación debe ser ultrarrápido
+    print(f"\n[⚡ BENCHMARK] Kosma Cold Start / AOT Compilation Time: {compile_time_ms:.2f} ms")
+    assert compile_time_ms < 50.0
 
-    port = 8999
+    port = 8998
     server_thread = threading.Thread(
         target=lambda: app.run(host="127.0.0.1", port=port),
         daemon=True,
@@ -28,7 +28,7 @@ def test_cold_start_and_throughput_benchmark():
     server_thread.start()
     time.sleep(0.15)
 
-    # 2. Medir Throughput con 1,000 peticiones concurrentes
+    # 2. Medir Throughput con peticiones concurrentes
     total_requests = 500
     concurrency = 20
     requests_per_thread = total_requests // concurrency

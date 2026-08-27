@@ -19,8 +19,8 @@ def make_controller(name: str):
         return
 
     content = f'''from dataclasses import dataclass
-from velox.controller import Controller
-from velox.routing import get, post
+from kosma.controller import Controller
+from kosma.routing import get, post
 
 @dataclass
 class ExampleDTO:
@@ -40,7 +40,7 @@ class {class_name}(Controller):
     print(f"✅ Controlador creado exitosamente: {target_file}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Velox Framework CLI - Laravel DX with Rust Speed")
+    parser = argparse.ArgumentParser(description="Kosma Framework CLI - Laravel DX with Rust Speed")
     subparsers = parser.add_subparsers(dest="command")
 
     # Command: make:controller
@@ -64,9 +64,9 @@ def main():
     if args.command == "make:controller":
         make_controller(args.name)
     elif args.command == "serve":
-        print(f"🚀 Iniciando servidor Velox en http://{args.host}:{args.port}...")
+        print(f"🚀 Iniciando servidor Kosma en http://{args.host}:{args.port}...")
     elif args.command == "build":
-        print("⚡ Compilando rutas y despachadores AOT...")
+        print("⚡ Compilando rutas y despachadores AOT con Kosma...")
         print("✅ Compilación completada con éxito.")
     else:
         parser.print_help()

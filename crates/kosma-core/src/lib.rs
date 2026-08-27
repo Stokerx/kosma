@@ -3,6 +3,7 @@ pub mod router;
 pub mod server;
 
 use pyo3::prelude::*;
+use response::CorsConfig;
 use router::AppRouter;
 use server::{run_server, ServerState};
 use std::net::SocketAddr;
@@ -12,6 +13,7 @@ use std::sync::Arc;
 pub struct NativeServer {
     router: Option<AppRouter>,
     routes_count: usize,
+    cors: CorsConfig,
 }
 
 #[pymethods]
@@ -21,6 +23,7 @@ impl NativeServer {
         NativeServer {
             router: Some(AppRouter::new()),
             routes_count: 0,
+            cors: CorsConfig::default(),
         }
     }
 
@@ -44,6 +47,25 @@ impl NativeServer {
         }
     }
 
+    #[pyo3(signature = (allow_origins=None, allow_methods=None, allow_headers=None))]
+    fn set_cors(
+        &mut self,
+        allow_origins: Option<Vec<String>>,
+        allow_methods: Option<Vec<String>>,
+        allow_headers: Option<Vec<String>>,
+    ) {
+        self.cors.enabled = true;
+        if let Some(origins) = allow_origins {
+            self.cors.allow_origin = origins.join(", ");
+        }
+        if let Some(methods) = allow_methods {
+            self.cors.allow_methods = methods.join(", ");
+        }
+        if let Some(headers) = allow_headers {
+            self.cors.allow_headers = headers.join(", ");
+        }
+    }
+
     fn routes_len(&self) -> usize {
         self.routes_count
     }
@@ -60,7 +82,11 @@ impl NativeServer {
             pyo3::exceptions::PyRuntimeError::new_err("Server is already running or router consumed")
         })?;
 
-        let state = Arc::new(ServerState { router });
+        let state = Arc::new(ServerState {
+            router,
+            cors: self.cors.clone(),
+        });
+
         let addr_str = format!("{}:{}", host, port);
         let addr: SocketAddr = addr_str.parse().map_err(|e: std::net::AddrParseError| {
             pyo3::exceptions::PyValueError::new_err(format!("Invalid address: {}", e))
@@ -77,23 +103,35 @@ impl NativeServer {
             {
                 Ok(rt) => rt,
                 Err(e) => {
-                    eprintln!("[Velox] Failed to build Tokio runtime: {}", e);
+                    eprintln!("[Kosma] Failed to build Tokio runtime: {}", e);
                     return;
                 }
             };
 
             runtime.block_on(async move {
                 println!(
-                    "⚡ Velox HTTP Engine (Hyper 1.0 + Tokio) corriendo en http://{}",
+                    "⚡ Kosma HTTP Engine (Hyper 1.0 + Tokio) corriendo en http://{}",
                     addr
                 );
                 if let Err(e) = run_server(state, addr).await {
-                    eprintln!("[Velox] Server runtime error: {}", e);
+                    eprintln!("[Kosma] Server runtime error: {}", e);
                 }
             });
         });
 
         Ok(())
+    }
+}
+
+// Implement Clone for CorsConfig
+impl Clone for CorsConfig {
+    fn clone(&self) -> Self {
+        Self {
+            enabled: self.enabled,
+            allow_origin: self.allow_origin.clone(),
+            allow_methods: self.allow_methods.clone(),
+            allow_headers: self.allow_headers.clone(),
+        }
     }
 }
 
@@ -104,7 +142,7 @@ fn num_cpus_count() -> usize {
 }
 
 #[pymodule]
-fn velox_core(_py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn kosma_core(_py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<NativeServer>()?;
     Ok(())
 }

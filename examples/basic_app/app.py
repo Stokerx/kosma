@@ -5,16 +5,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "python"))
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from velox import VeloxApp, Container
+from kosma import KosmaApp, Container
 from examples.basic_app.controllers.user_controller import UserController
 from examples.basic_app.services.user_service import UserService
 
-def create_app() -> VeloxApp:
+def create_app() -> KosmaApp:
     container = Container()
-    # Registrar UserService como Singleton
     container.singleton(UserService)
 
-    app = VeloxApp(container=container)
+    app = KosmaApp(
+        title="Kosma Demo Store API",
+        version="1.0.0",
+        docs_url="/docs",
+        openapi_url="/openapi.json",
+        container=container,
+    )
+    app.enable_cors(allow_origins=["*"])
     app.register(UserController)
     return app
 

@@ -1,4 +1,4 @@
-# AI Guardrails & Architectural Invariants: Velox Framework
+# AI Guardrails & Architectural Invariants: Kosma Framework
 
 Este documento establece las reglas estrictas de desarrollo y límites técnicos inviolables para cualquier modificación, extensión o generación de código en este repositorio.
 
@@ -9,7 +9,7 @@ Este documento establece las reglas estrictas de desarrollo y límites técnicos
 ### 1. Prohibido el uso de `inspect` o `typing.get_type_hints` en Runtime
 * **Por qué:** La introspección dinámica es la principal causa de la degradación de rendimiento y cold starts lentos en frameworks como FastAPI o Pydantic v1.
 * **Regla:** Ningún endpoint, middleware o deserializador debe invocar `inspect.signature()`, `inspect.getmembers()` o `typing.get_type_hints()` durante el ciclo de vida de una petición (`handle_request`).
-* **Solución requerida:** Toda extracción de metadatos debe ocurrir exclusivamente durante la fase de compilación AOT (`velox build`), generando funciones despachadoras planas.
+* **Solución requerida:** Toda extracción de metadatos debe ocurrir exclusivamente durante la fase de compilación AOT (`kosma build` o `app.compile()`), generando funciones despachadoras planas.
 
 ### 2. Prohibido envolver la arquitectura ASGI tradicional
 * **Por qué:** ASGI introduce múltiples capas de coroutines intermediarias, tuplas de scope en memoria y overhead de serialización en el event loop de CPython.
@@ -32,13 +32,4 @@ Este documento establece las reglas estrictas de desarrollo y límites técnicos
 
 ### 6. Prohibido dependencias pesadas en tiempo de ejecución
 * **Por qué:** Paquetes gigantescos aumentan el tamaño de imagen de Docker y el tiempo de arranque.
-* **Regla:** El framework en tiempo de ejecución solo depende del binario nativo (`velox_core`), `orjson` para serialización de alta velocidad y la librería estándar de Python.
-
----
-
-## ✅ Check-list de Validación para cada cambio
-
-- [ ] ¿El código introducido añade alguna llamada a `inspect` en runtime? **(Debe ser NO)**
-- [ ] ¿Se liberó el GIL en Rust durante operaciones de I/O de red? **(Debe ser SÍ)**
-- [ ] ¿Las pruebas unitarias y de integración compilan con `cargo test` y pasan con `pytest`? **(Debe ser SÍ)**
-- [ ] ¿El tiempo de arranque de la aplicación es inferior a 15ms? **(Debe ser SÍ)**
+* **Regla:** El framework en tiempo de ejecución solo depende del binario nativo (`kosma_core`), `orjson` para serialización de alta velocidad y la librería estándar de Python.

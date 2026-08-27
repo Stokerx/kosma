@@ -3,20 +3,24 @@ requires = ["maturin>=1.5,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "velox"
+name = "kosma"
 version = "0.1.0"
-description = "High-performance Python backend framework powered by Rust and AOT compilation"
+description = "High-performance Python backend framework with Laravel DX and Rust core"
 readme = "README.md"
+authors = [
+    { name = "Kosma Team" }
+]
+license = { text = "MIT" }
 requires-python = ">=3.10"
 dependencies = [
     "orjson>=3.10.0",
 ]
 
 [project.scripts]
-velox = "velox.cli:main"
+kosma = "kosma.cli:main"
 
 [tool.maturin]
-manifest-path = "crates/velox-core/Cargo.toml"
+manifest-path = "crates/kosma-core/Cargo.toml"
 python-source = "python"
-module-name = "velox.velox_core"
+module-name = "kosma.kosma_core"
 features = ["pyo3/extension-module"]

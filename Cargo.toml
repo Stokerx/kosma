@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "crates/velox-core",
+    "crates/kosma-core",
 ]
 resolver = "2"
