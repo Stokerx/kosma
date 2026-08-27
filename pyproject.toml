@@ -1,0 +1,22 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "velox"
+version = "0.1.0"
+description = "High-performance Python backend framework powered by Rust and AOT compilation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "orjson>=3.10.0",
+]
+
+[project.scripts]
+velox = "velox.cli:main"
+
+[tool.maturin]
+manifest-path = "crates/velox-core/Cargo.toml"
+python-source = "python"
+module-name = "velox.velox_core"
+features = ["pyo3/extension-module"]

@@ -1,0 +1,14 @@
+/Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/deps/serde-e5ed9c9461e2c90d.d: /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/build/serde-6327e7867acaafe8/out/private.rs
+
+/Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/deps/libserde-e5ed9c9461e2c90d.rlib: /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/build/serde-6327e7867acaafe8/out/private.rs
+
+/Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/deps/libserde-e5ed9c9461e2c90d.rmeta: /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/build/serde-6327e7867acaafe8/out/private.rs
+
+/Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs:
+/Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs:
+/Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs:
+/Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs:
+/Users/stoker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs:
+/Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/build/serde-6327e7867acaafe8/out/private.rs:
+
+# env-dep:OUT_DIR=/Users/stoker/.gemini/antigravity/scratch/velox-framework/target/debug/build/serde-6327e7867acaafe8/out
