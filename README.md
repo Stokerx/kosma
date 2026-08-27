@@ -2,9 +2,10 @@
 
 > **Laravel Developer Experience (DX) + Rust Native Performance + Zero-Reflection AOT Engine for Python.**
 
-[![CI](https://github.com/your-org/kosma/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/kosma/actions)
+[![CI](https://github.com/Stokerx/Kosma/actions/workflows/ci.yml/badge.svg)](https://github.com/Stokerx/Kosma/actions)
 [![PyPI version](https://img.shields.io/pypi/v/kosma.svg)](https://pypi.org/project/kosma/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Powered by uv](https://img.shields.io/badge/Powered%20by-uv-blueviolet)](https://github.com/astral-sh/uv)
 
 **Kosma** es un framework backend para Python de ultra-alto rendimiento que resuelve las limitaciones históricas de CPython (cold starts, overhead del GIL, fragmentación sync/async e introspección de runtime) delegando la red a un motor nativo en **Rust (Hyper 1.0 + Tokio)** y utilizando compilación **AOT (Ahead-of-Time)** para validar DTOs y generar documentación OpenAPI interactiva.
 
@@ -25,8 +26,12 @@
 
 ## 🚀 Inicio Rápido en 30 Segundos
 
-### 1. Instalación
+### 1. Instalación con `uv` o `pip`
 ```bash
+# Con uv (Recomendado)
+uv add kosma
+
+# O con pip
 pip install kosma
 ```
 
@@ -94,7 +99,7 @@ Kosma responde instantáneamente con un código `422 Unprocessable Entity`:
 
 * 📘 [Software Design Document (SDD)](./SDD.md)
 * 🚫 [AI & Architectural Guardrails](./AI_GUARDRAILS.md)
-* 🤝 [Guía de Contribución](./CONTRIBUTING.md)
+* 🤝 [Guía de Contribución con uv](./CONTRIBUTING.md)
 
 ---
 

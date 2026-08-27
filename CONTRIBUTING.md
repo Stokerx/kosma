@@ -1,37 +1,33 @@
 # Contributing to Kosma ⚡
 
-Thank you for your interest in contributing to **Kosma**! We welcome contributions of all kinds: bug fixes, new features, documentation improvements, and benchmarks.
+Thank you for your interest in contributing to **Kosma**!
 
 ---
 
-## 🛠️ Development Setup
+## 🛠️ Development Setup with `uv` (Astral)
 
-Kosma requires:
-* **Python 3.10+** (Tested on Python 3.10, 3.11, 3.12, 3.13)
-* **Rust 1.75+** & Cargo
-* **Maturin**
+Kosma standardizes on **[Astral uv](https://github.com/astral-sh/uv)** for fast Python packaging, environment management, and dependency locking.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-org/kosma.git
-cd kosma
+git clone git@github.com:Stokerx/Kosma.git
+cd Kosma
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Install dependencies with `uv`
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -U pip maturin orjson pytest pytest-asyncio
+# uv creates the virtual environment and installs all dependencies in lockstep
+uv sync
 ```
 
 ### 3. Build the native Rust extension
 ```bash
-maturin develop
+uv run maturin develop
 ```
 
 ### 4. Run the test suite
 ```bash
-pytest tests/ -v
+uv run pytest tests/ -v
 ```
 
 ---
